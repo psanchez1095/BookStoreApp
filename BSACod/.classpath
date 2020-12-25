@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="mysql-connector/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/jakarta.annotation-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/jakarta.persistence-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpa.modelgen.processor-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpa.modelgen.processor.jar"/>
+	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpars-javadoc.jar"/>
+	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpars-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpars.jar"/>
+	<classpathentry exported="true" kind="lib" path="jpaLibraries/eclipselink.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
