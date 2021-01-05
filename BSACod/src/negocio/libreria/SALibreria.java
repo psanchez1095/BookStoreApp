@@ -1,47 +1,12 @@
-/**
- * 
- */
 package negocio.libreria;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author termo
- * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
- */
+import java.util.Collection;
+
 public interface SALibreria {
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
-	public void altaLibreria();
 
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
-	public void bajaLibreria();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
-	public void modificarLibreria();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
-	public void mostrarLibreria();
-
-	/** 
-	* <!-- begin-UML-doc -->
-	* <!-- end-UML-doc -->
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
-	public void listarLibrerias();
+	public Integer altaLibreria(TransferLibreria tLibreria) throws Exception;
+	public void bajaLibreria(Integer idLibreria) throws ClassNotFoundException, Exception;
+	public Integer modificarLibreria(TransferLibreria tLibreria) throws ClassNotFoundException, Exception;
+	public TransferLibreria mostrarLibreria(Integer idLibreria) throws ClassNotFoundException, Exception;
+	public Collection<TransferLibreria> listarLibrerias() throws ClassNotFoundException, Exception;
 }

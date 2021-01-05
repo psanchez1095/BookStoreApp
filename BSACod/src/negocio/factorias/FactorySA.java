@@ -1,9 +1,13 @@
 package negocio.factorias;
 
 import negocio.cliente.SACliente;
+import negocio.departamento.SADepartamento;
 import negocio.editorial.SAEditorial;
+import negocio.empleado.SAEmpleado;
 import negocio.factura.SAFactura;
+import negocio.libreria.SALibreria;
 import negocio.libro.SALibro;
+import negocio.material.SAMaterial;
 
 /**
  * The Class FactorySA.
@@ -52,4 +56,21 @@ public abstract class FactorySA {
    * @return the SA factura
    */
   public abstract SAFactura createSAFactura();
+
+  /**
+   * Creates the SA libreria.
+   *
+   * @return the SA libreria
+   */
+  public abstract SALibreria createSALibreria();
+
+  /**
+   * Creates the SA departamento.
+   *
+   * @return the SA departamento
+   */
+  public abstract SADepartamento createSADepartamento();
+
+  public abstract SAMaterial createSAMaterial();
+  public abstract SAEmpleado createSAEmpleado();
 }

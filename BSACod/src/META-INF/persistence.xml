@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="BSACod">
+	<persistence-unit name="BSA_COD" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>negocio.departamento.EntityDepartamento</class>
+		<class>negocio.empleado.EntityEmpleado</class>
+		<class>negocio.empleado.EntityEmpleadoTiempoCompleto</class>
+		<class>negocio.empleado.EntityEmpleadoTiempoParcial</class>
+		<class>negocio.libreria.EntityLibreria</class>
+		<class>negocio.material.EntityCantidad</class>
+		<class>negocio.material.EntityCantidadID</class>
+		<class>negocio.material.Material</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/bookstoreapp"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.password" value=""/>
+			<property name="eclipselink.logging.level" value="FINE"/>
+<!-- 			<property name="eclipselink.logging.level" value="INFO"/> -->
+<!-- 			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> -->
+<!-- 			<property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL.jdbc"/> -->
+<!-- 			<property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL.jdbc"/> -->
+			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
+		</properties>
 	</persistence-unit>
 </persistence>

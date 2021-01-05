@@ -1,26 +1,29 @@
-/**
- * 
- */
 package presentacion.controlador.command.CommandLibreria;
 
+import negocio.factorias.FactorySA;
+import negocio.libreria.SALibreria;
+import negocio.libreria.TransferLibreria;
 import presentacion.contexto.Contexto;
 import presentacion.controlador.command.Command;
+import presentacion.eventos.EventosLibreria;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author termo
-* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-*/
 public class ModificarLibreria implements Command {
-	/** 
-	* (non-Javadoc)
-	* @see Command#execute()
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
 	@Override
 	public Contexto execute(Object objeto) {
-		// TODO Auto-generated method stub
-		return null;
+		final TransferLibreria libreria = (TransferLibreria) objeto;
+		final SALibreria saLibreria = FactorySA.getInstance().createSALibreria();
+		String mensaje;
+		Contexto contexto;
+		
+		try{
+			saLibreria.modificarLibreria(libreria);
+			mensaje = "Libreria modificada correctamente. Su ID es: " + libreria.getId() + ". ";
+			contexto = new Contexto(EventosLibreria.MODIFICAR_LIBRERIA_OK, mensaje);
+		} catch (final Exception e){
+			mensaje = e.getMessage();
+			contexto = new Contexto(EventosLibreria.MODIFICAR_LIBRERIA_KO, mensaje);
+		}
+		
+		return contexto;
 	}
 }

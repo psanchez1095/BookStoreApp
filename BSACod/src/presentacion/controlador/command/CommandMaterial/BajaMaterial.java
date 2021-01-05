@@ -1,26 +1,29 @@
-/**
- * 
- */
 package presentacion.controlador.command.CommandMaterial;
 
 import presentacion.contexto.Contexto;
 import presentacion.controlador.command.Command;
+import negocio.factorias.FactorySA;
+import negocio.material.SAMaterial;
+import presentacion.eventos.EventosMaterial;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author termo
-* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-*/
 public class BajaMaterial implements Command {
-	/** 
-	* (non-Javadoc)
-	* @see Command#execute()
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
+
 	@Override
 	public Contexto execute(Object objeto) {
-		// TODO Auto-generated method stub
-		return null;
+		final Integer idMaterial = (Integer) objeto;
+		final SAMaterial sa = FactorySA.getInstance().createSAMaterial();
+		String mensaje;
+		Contexto contexto;
+
+		try {
+			sa.bajaMaterial(idMaterial);
+			mensaje = "Material dado de baja corretamente. Su ID es: " + idMaterial + ". ";
+			contexto = new Contexto(EventosMaterial.BAJA_MATERIAL_OK, mensaje);
+		} catch (final Exception e) {
+			mensaje = e.getMessage();
+			contexto = new Contexto(EventosMaterial.BAJA_MATERIAL_KO, mensaje);
+		}
+
+		return contexto;
 	}
 }

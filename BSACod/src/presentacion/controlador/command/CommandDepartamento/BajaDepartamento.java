@@ -1,27 +1,35 @@
-/**
- * 
- */
 package presentacion.controlador.command.CommandDepartamento;
 
+import negocio.departamento.SADepartamento;
+import negocio.factorias.FactorySA;
 import presentacion.contexto.Contexto;
 import presentacion.controlador.command.Command;
+import presentacion.eventos.EventosDepartamento;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author termo
-* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-*/
 public class BajaDepartamento implements Command {
-	/** 
-	* (non-Javadoc)
-	* @see Command#execute()
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
 
-	@Override
-	public Contexto execute(Object objeto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  @Override
+  public Contexto execute(Object objeto) {
+
+    final Integer idDepartamento = (Integer) objeto;
+    final SADepartamento saDpto = FactorySA.getInstance().createSADepartamento();
+    String mensaje;
+    Contexto contexto;
+
+    try {
+      if (saDpto.bajaDepartamento(idDepartamento)) {
+        mensaje = "Departamento dado de baja corretamente. Su ID es: " + idDepartamento + ". ";
+        contexto = new Contexto(EventosDepartamento.BAJA_DEPARTAMENTO_OK, mensaje);
+      } else {
+        mensaje = "No se ha podido dar de baja el departamento corretamente. Su ID es: "
+          + idDepartamento + ". ";
+        contexto = new Contexto(EventosDepartamento.BAJA_DEPARTAMENTO_KO, mensaje);
+      }
+    } catch (final Exception e) {
+      mensaje = e.getMessage();
+      contexto = new Contexto(EventosDepartamento.BAJA_DEPARTAMENTO_KO, mensaje);
+    }
+
+    return contexto;
+  }
 }

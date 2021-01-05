@@ -28,4 +28,5 @@ public abstract class FactoriaComando {
    * @return the command
    */
   public abstract Command nuevoComando(int idEvento);
+  
 }

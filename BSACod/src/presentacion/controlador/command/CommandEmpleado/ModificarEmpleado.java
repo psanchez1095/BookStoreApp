@@ -3,24 +3,31 @@
  */
 package presentacion.controlador.command.CommandEmpleado;
 
+import negocio.factorias.FactorySA;
+import negocio.empleado.SAEmpleado;
+import negocio.empleado.TransferEmpleado;
 import presentacion.contexto.Contexto;
 import presentacion.controlador.command.Command;
+import presentacion.eventos.EventosEmpleado;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author termo
-* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-*/
+
 public class ModificarEmpleado implements Command {
-	/** 
-	* (non-Javadoc)
-	* @see Command#execute()
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
-	@Override
+	
 	public Contexto execute(Object objeto) {
-		// TODO Auto-generated method stub
-		return null;
+		final TransferEmpleado Empleado = (TransferEmpleado) objeto;
+		final SAEmpleado sa = FactorySA.getInstance().createSAEmpleado();
+		String mensaje;
+		Contexto contexto;
+
+		try {
+			sa.modificarEmpleado(Empleado);
+			mensaje = " Empleado modificado correctamente. Su ID es: " + Empleado.getId() + ". ";
+			contexto = new Contexto(EventosEmpleado.MODIFICAR_EMPLEADO_OK, mensaje);
+		} catch (final Exception e) {
+			mensaje = e.getMessage();
+			contexto = new Contexto(EventosEmpleado.MODIFICAR_EMPLEADO_KO, mensaje);
+		}
+
+		return contexto;
 	}
 }

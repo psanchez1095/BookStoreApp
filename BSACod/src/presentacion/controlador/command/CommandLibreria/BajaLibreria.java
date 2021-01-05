@@ -1,26 +1,28 @@
-/**
- * 
- */
 package presentacion.controlador.command.CommandLibreria;
 
+import negocio.factorias.FactorySA;
+import negocio.libreria.SALibreria;
 import presentacion.contexto.Contexto;
 import presentacion.controlador.command.Command;
+import presentacion.eventos.EventosLibreria;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author termo
-* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-*/
 public class BajaLibreria implements Command {
-	/** 
-	* (non-Javadoc)
-	* @see Command#execute()
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
 	@Override
 	public Contexto execute(Object objeto) {
-		// TODO Auto-generated method stub
-		return null;
+		final int idLibreria = (Integer) objeto;
+		final SALibreria saLibreria = FactorySA.getInstance().createSALibreria();
+		String mensaje;
+		Contexto contexto;
+		
+		try{
+			saLibreria.bajaLibreria(idLibreria);
+			mensaje = "Libreria dada de baja correctamente. Su ID es: " + idLibreria + ". ";
+			contexto = new Contexto(EventosLibreria.BAJA_LIBRERIA_OK, mensaje);
+		} catch(final Exception e){
+			mensaje = e.getMessage();
+			contexto = new Contexto(EventosLibreria.BAJA_LIBRERIA_KO, mensaje);
+		}
+		
+		return contexto;
 	}
 }

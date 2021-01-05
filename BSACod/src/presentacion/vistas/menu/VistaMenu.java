@@ -28,7 +28,7 @@ public class VistaMenu extends JFrame implements VistaPrincipal {
   private static final long serialVersionUID = 1L;
 
   /** The factura boton. */
-  private JButton menuBoton, clienteBoton, editorialBoton, libroBoton, facturaBoton;
+  private JButton menuBoton, clienteBoton, editorialBoton, libroBoton, facturaBoton, materialBoton, departamentoBoton, libreriaBoton, empleadoBoton;
 
   /**
    * Instantiates a new vista menu.
@@ -134,7 +134,7 @@ public class VistaMenu extends JFrame implements VistaPrincipal {
     fondo.setBackground(new Color(225, 225, 225));
 
     barra.setLayout(new BorderLayout());
-    fondo.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 250));
+    fondo.setLayout(new FlowLayout(FlowLayout.CENTER, 40, 140));
 
     menuBoton = botonesMenu("MENÚ");
     menuBoton.addActionListener(new ActionListener() {
@@ -204,6 +204,60 @@ public class VistaMenu extends JFrame implements VistaPrincipal {
       }
     });
     fondo.add(facturaBoton);
+    	    
+    departamentoBoton =
+    	    	    botones(getClass().getClassLoader().getResource("iconos/menu/Departamento.png").getPath(),
+    	    	        new Color(255, 255, 255));
+    departamentoBoton.addActionListener(new ActionListener() {
+    	    	      @Override
+    	    	      public void actionPerformed(final ActionEvent e) {
+    	    	        dispose();
+    	    	        final Contexto contexto = new Contexto(EventosMenu.MOSTRAR_DEPARTAMENTO_VISTA, null);
+    	    	        Controller.getInstance().handleRequest(contexto);
+    	    	      }
+    	    	    });
+    	    	    fondo.add(departamentoBoton);
+   
+    	    	    	    	    
+    	    	    	    	    materialBoton =
+    	    	    	    	    	      botones(getClass().getClassLoader().getResource("iconos/menu/Material.png").getPath(),
+    	    	    	    	    	        new Color(255, 255, 255));
+    	    	    	    	    materialBoton.addActionListener(new ActionListener() {
+    	    	    	    	    	      @Override
+    	    	    	    	    	      public void actionPerformed(final ActionEvent e) {
+    	    	    	    	    	        dispose();
+    	    	    	    	    	        final Contexto contexto = new Contexto(EventosMenu.MOSTRAR_MATERIAL_VISTA, null);
+    	    	    	    	    	        Controller.getInstance().handleRequest(contexto);
+    	    	    	    	    	      }
+    	    	    	    	    	    });
+    	    	    	    	    	    fondo.add(materialBoton);
+    	    	    	    	    	    
+    	    	    	    	    	    empleadoBoton =
+    	    	    	    	    	    	      botones(getClass().getClassLoader().getResource("iconos/menu/Empleado.png").getPath(),
+    	    	    	    	    	    	        new Color(255, 255, 255));
+    	    	    	    	    				empleadoBoton.addActionListener(new ActionListener() {
+    	    	    	    	    	    	      @Override
+    	    	    	    	    	    	      public void actionPerformed(final ActionEvent e) {
+    	    	    	    	    	    	        dispose();
+    	    	    	    	    	    	        final Contexto contexto = new Contexto(EventosMenu.MOSTRAR_EMPLEADO_VISTA, null);
+    	    	    	    	    	    	        Controller.getInstance().handleRequest(contexto);
+    	    	    	    	    	    	      }
+    	    	    	    	    	    	    });
+    	    	    	    	    	    	    fondo.add(empleadoBoton);   	    	    	    	    	    
+
+    	    	    	    	    libreriaBoton =
+    	    	    	    	    	      botones(getClass().getClassLoader().getResource("iconos/menu/Libreria.png").getPath(),
+    	    	    	    	    	        new Color(255, 255, 255));
+    	    	    	    	    libreriaBoton.addActionListener(new ActionListener() {
+    	    	    	    	    	      @Override
+    	    	    	    	    	      public void actionPerformed(final ActionEvent e) {
+    	    	    	    	    	        dispose();
+    	    	    	    	    	        final Contexto contexto = new Contexto(EventosMenu.MOSTRAR_LIBRERIA_VISTA, null);
+    	    	    	    	    	        Controller.getInstance().handleRequest(contexto);
+    	    	    	    	    	      }
+    	    	    	    	    	    });
+    	    	    	    	    	    fondo.add(libreriaBoton);	    	    	    	    
+    	    	    	    
 
     add(barra, BorderLayout.NORTH);
     add(fondo, BorderLayout.CENTER);

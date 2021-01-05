@@ -20,4 +20,16 @@ public class EventosMenu {
   /** The Constant MOSTRAR_MENU_VISTA. */
   public static final int MOSTRAR_MENU_VISTA = 1;
 
+  /** The Constant MOSTRAR_DEPARTAMENTO_VISTA. */
+  public static final int MOSTRAR_DEPARTAMENTO_VISTA = 101;
+
+  /** The Constant MOSTRAR_FACTURA_VISTA. */
+  public static final int MOSTRAR_LIBRERIA_VISTA = 102;
+
+  /** The Constant MOSTRAR_LIBRO_VISTA. */
+  public static final int MOSTRAR_MATERIAL_VISTA = 103;
+
+  /** The Constant MOSTRAR_MENU_VISTA. */
+  public static final int MOSTRAR_EMPLEADO_VISTA = 104;
+
 }

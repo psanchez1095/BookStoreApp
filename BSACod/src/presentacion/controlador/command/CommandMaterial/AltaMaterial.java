@@ -1,26 +1,30 @@
-/**
- * 
- */
 package presentacion.controlador.command.CommandMaterial;
 
 import presentacion.contexto.Contexto;
 import presentacion.controlador.command.Command;
+import negocio.factorias.FactorySA;
+import negocio.material.SAMaterial;
+import presentacion.eventos.EventosMaterial;
+import negocio.material.TransferMaterial;
 
-/** 
-* <!-- begin-UML-doc -->
-* <!-- end-UML-doc -->
-* @author termo
-* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-*/
 public class AltaMaterial implements Command {
-	/** 
-	* (non-Javadoc)
-	* @see Command#execute()
-	* @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	*/
+
 	@Override
 	public Contexto execute(Object objeto) {
-		// TODO Auto-generated method stub
-		return null;
+		TransferMaterial material = (TransferMaterial) objeto;
+		SAMaterial sa = FactorySA.getInstance().createSAMaterial();
+		String mensaje;
+		Contexto contexto;
+
+		try {
+			int id = sa.altaMaterial(material);
+			mensaje = "Material dado de alta corretamente. Su ID es: " + id + ". ";
+			contexto = new Contexto(EventosMaterial.ALTA_MATERIAL_OK, mensaje);
+		} catch (Exception e) {
+			mensaje = e.getMessage();
+			contexto = new Contexto(EventosMaterial.ALTA_MATERIAL_KO, mensaje);
+		}
+
+		return contexto;
 	}
 }

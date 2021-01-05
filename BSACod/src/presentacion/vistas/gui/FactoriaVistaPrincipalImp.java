@@ -1,9 +1,13 @@
 package presentacion.vistas.gui;
 
 import presentacion.eventos.EventosMenu;
+import presentacion.vistas.Empleado.VistaEmpleado;
+import presentacion.vistas.Material.VistaMaterial;
 import presentacion.vistas.cliente.VistaCliente;
+import presentacion.vistas.departamento.VistaDepartamento;
 import presentacion.vistas.editorial.VistaEditorial;
 import presentacion.vistas.factura.VistaFactura;
+import presentacion.vistas.libreria.VistaLibreria;
 import presentacion.vistas.libro.VistaLibro;
 import presentacion.vistas.menu.VistaMenu;
 
@@ -33,11 +37,24 @@ public class FactoriaVistaPrincipalImp extends FactoriaVistaPrincipal {
         vistaPrincipal = new VistaEditorial();
         break;
       case EventosMenu.MOSTRAR_LIBRO_VISTA:
-        vistaPrincipal = new VistaLibro();
-        break;
+          vistaPrincipal = new VistaLibro();
+          break;
       case EventosMenu.MOSTRAR_FACTURA_VISTA:
-        vistaPrincipal = new VistaFactura();
+          vistaPrincipal = new VistaFactura();
+          break;
+      case EventosMenu.MOSTRAR_EMPLEADO_VISTA:
+          vistaPrincipal = new VistaEmpleado();
+          break;
+      case EventosMenu.MOSTRAR_DEPARTAMENTO_VISTA:
+        vistaPrincipal = new VistaDepartamento();
         break;
+      case EventosMenu.MOSTRAR_MATERIAL_VISTA:
+        vistaPrincipal = new VistaMaterial();
+        break;
+      case EventosMenu.MOSTRAR_LIBRERIA_VISTA:
+            vistaPrincipal = new VistaLibreria();
+            break;
+     
     }
     return vistaPrincipal;
   }

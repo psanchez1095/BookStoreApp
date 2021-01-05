@@ -9,13 +9,12 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/jakarta.annotation-api.jar"/>
-	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/jakarta.persistence-api.jar"/>
-	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpa.modelgen.processor-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpa.modelgen.processor.jar"/>
-	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpars-javadoc.jar"/>
-	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpars-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpars.jar"/>
-	<classpathentry exported="true" kind="lib" path="jpaLibraries/eclipselink.jar"/>
+	<classpathentry kind="lib" path="jpaLibraries/jpa/jakarta.persistence_2.2.2.jar"/>
+	<classpathentry kind="lib" path="jpaLibraries/jpa/jakarta.persistence.source_2.2.2.jar"/>
+	<classpathentry kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpa.modelgen_2.7.4.v20190115-ad5b7c6b2a.jar"/>
+	<classpathentry kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpa.modelgen.source_2.7.4.v20190115-ad5b7c6b2a.jar"/>
+	<classpathentry kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpars_2.7.4.v20190115-ad5b7c6b2a.jar"/>
+	<classpathentry kind="lib" path="jpaLibraries/jpa/org.eclipse.persistence.jpars.source_2.7.4.v20190115-ad5b7c6b2a.jar"/>
+	<classpathentry kind="lib" path="jpaLibraries/eclipselink.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
